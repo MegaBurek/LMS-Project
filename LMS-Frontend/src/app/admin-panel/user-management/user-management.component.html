@@ -1,0 +1,192 @@
+<mat-card class="home-content">
+  <mat-card-header>
+    <mat-card-title class="label-register">User Management</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Students">
+        <mat-table #table [dataSource]="students">
+
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+            <mat-cell *matCellDef="let student">{{student.id}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+            <mat-cell *matCellDef="let student">{{student.firstName}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+            <mat-cell *matCellDef="let student">{{student.lastName}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+            <mat-cell *matCellDef="let student">{{student.email}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="cardNumber">
+            <mat-header-cell mat-header-cell *matHeaderCellDef>Index</mat-header-cell>
+            <mat-cell *matCellDef="let student">{{student.cardNumber}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="details">
+            <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary">
+                <mat-icon class="mat-18">reorder</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="update">
+            <mat-header-cell *matHeaderCellDef> Update </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="accent">
+                <mat-icon class="mat-18">system_update</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="warn">
+                <mat-icon class="mat-18">delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns1"></mat-header-row>
+
+          <mat-row *matRowDef="let row; columns: displayedColumns1"></mat-row>
+
+        </mat-table>
+      </mat-tab>
+      <mat-tab label="Teachers">
+        <mat-table #table [dataSource]="teachers">
+
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+            <mat-cell *matCellDef="let teacher">{{teacher.id}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+            <mat-cell *matCellDef="let teacher">{{teacher.firstName}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+            <mat-cell *matCellDef="let teacher">{{teacher.lastName}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+            <mat-cell *matCellDef="let teacher">{{teacher.email}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="personalIdentificationNumber">
+            <mat-header-cell *matHeaderCellDef>Peronsal ID</mat-header-cell>
+            <mat-cell *matCellDef="let teacher">{{teacher.personalIdentificationNumber}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="details">
+            <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary">
+                <mat-icon class="mat-18">reorder</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="update">
+            <mat-header-cell *matHeaderCellDef> Update </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="accent">
+                <mat-icon class="mat-18">system_update</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="warn">
+                <mat-icon class="mat-18">delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+
+          <mat-row *matRowDef="let row; columns: displayedColumns2"></mat-row>
+
+        </mat-table>
+      </mat-tab>
+      <mat-tab label="Administrative">
+        <mat-table #table [dataSource]="administrative">
+
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+            <mat-cell *matCellDef="let administration">{{administration.id}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+            <mat-cell *matCellDef="let administration">{{administration.firstName}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+            <mat-cell *matCellDef="let administration">{{administration.lastName}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+            <mat-cell *matCellDef="let administration">{{administration.email}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="personalIdentificationNumber">
+            <mat-header-cell *matHeaderCellDef>Peronsal ID</mat-header-cell>
+            <mat-cell *matCellDef="let administration">{{administration.personalIdentificationNumber}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="details">
+            <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary">
+                <mat-icon class="mat-18">reorder</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="update">
+            <mat-header-cell *matHeaderCellDef> Update </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="accent">
+                <mat-icon class="mat-18">system_update</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-icon-button color="warn">
+                <mat-icon class="mat-18">delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+
+          <mat-row *matRowDef="let row; columns: displayedColumns2"></mat-row>
+
+        </mat-table>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

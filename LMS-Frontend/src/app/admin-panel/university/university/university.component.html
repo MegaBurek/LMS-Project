@@ -1,0 +1,33 @@
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly none" fxLayoutWrap fxLayoutGap="0.5%"
+  class="faculty-row-container">
+  <div  *ngFor="let u of university" fxFlex="33%" fxLayout="column" >
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{u.name}}</mat-card-title>
+      <mat-card-subtitle>{{u.address.street}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="uni-container">
+    <img mat-card-image src="https://www.epicentarpress.rs/docs/1502800267-LR-KapetanMisinoZdanjeBeograd03.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        Sveučilište u Beogradu (srp. Универзитет у Београду) je najstarija i najveća institucija visokog obrazovanja u Srbiji broji preko 7.000 članova
+      </p>
+    </mat-card-content>
+  </div>
+    <mat-card-actions>
+      <a [routerLink]= "['/faculties',u.id]">   
+      <button mat-button >ENTER UNIVERSITY</button>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
+</div>
+
+
+
+
+
+
+
+
