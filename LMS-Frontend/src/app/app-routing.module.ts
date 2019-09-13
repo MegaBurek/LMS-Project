@@ -17,6 +17,10 @@ import { AdministrativePanelComponent } from './administrative-panel/administrat
 import { GermanyUniversityComponent } from './university-detail/germany-university/germany-university.component';
 import { RussiaUniversityComponent } from './university-detail/russia-university/russia-university.component';
 import { BulgariaUniversityComponent } from './university-detail/bulgaria-university/bulgaria-university.component';
+
+import { BulgariaFacultiesComponent } from './faculties/bulgaria-faculties/bulgaria-faculties.component';
+import { RussiaFacultiesComponent } from './faculties/russia-faculties/russia-faculties.component';
+import { GermanyFacultiesComponent } from './faculties/germany-faculties/germany-faculties.component';
  
 
 const routes: Routes = [
@@ -35,11 +39,10 @@ const routes: Routes = [
   { path: 'materials/subject/:id', component: MaterialDetailComponent, data: { animation: { value: 'MaterialDetailPage' }} },
   { path: 'Universities/Germany', component: GermanyUniversityComponent, data: { animation: { value: 'GermanyUniversityDetailPage' }} },
   { path: 'Universities/Bulgaria', component: BulgariaUniversityComponent, data: { animation: { value: 'BulgariaUniversityDetailPage' }} },
-  { path: 'Universities/Russia', component: RussiaUniversityComponent, data: { animation: { value: 'RussiaUniversityDetailPage' }} }
-
-  // { path: 'faculties/:universityId/study-program', component: StudyProgramComponent, data: { animation: { value: 'StudyProgramPage' }} },
-  // { path: 'faculties/:universityId/study-program/:facultyId', component: StudyProgramComponent, data: { animation: { value: 'StudyProgramPage' }} },
-  // { path: 'faculties/:universityId/study-program/:facultyId/add-study-program', component: AddStudyProgramComponent, data: { animation: { value: 'AddStudyProgramPage' }} 
+  { path: 'Universities/Russia', component: RussiaUniversityComponent, data: { animation: { value: 'RussiaUniversityDetailPage' }} },
+  { path: 'Universities/Russia/Faculties', component: RussiaFacultiesComponent, data: { animation: { value: 'RussiaFacultiesPage' }} },
+  { path: 'Universities/Germany/Faculties', component: GermanyFacultiesComponent, data: { animation: { value: 'GermanyFacultiesPage' }} },
+  { path: 'Faculties/Bulgaria/Faculties', component: BulgariaFacultiesComponent, data: { animation: { value: 'BulgariaFacultiesPage' }} }
 ];
 
 @NgModule({

@@ -17,6 +17,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Where;
 
+import lms.dto.PlaceDTO;
+
 
 @Entity
 @Where(clause = "deleted = 'false'")
@@ -109,25 +111,8 @@ public class Place {
 	public void setAddresses(Set<Address> addresses) {
 		this.addresses = addresses;
 	}
-
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		Place object = (Place) o;
-		if (object.id == null || id == null) {
-			return false;
-		}
-		return Objects.equals(id, object.id);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hashCode(id);
+	
+	public PlaceDTO toDTO() {
+		return new PlaceDTO(this.name, this.country.toDTO());
 	}
 }

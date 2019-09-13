@@ -55,20 +55,12 @@ public class Course {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private YearOfStudy yearOfStudy;
 
-	private String pic_name;
-
-	private String mimetype;
-
-	@Lob
-	private byte[] pic;
-
 	public Course() {
 	}
 
 	public Course(Long id, @NotNull Boolean deleted, @Size(max = 50) String title, int ects, boolean obligatory,
 			String description,int numberOfLectures, int numberOfExcercises, int version, Set<CourseRealization> courseRealizations,
-			YearOfStudy yearOfStudy, String pic_name, String mimetype,
-			byte[] pic) {
+			YearOfStudy yearOfStudy) {
 		super();
 		this.id = id;
 		this.deleted = deleted;
@@ -81,19 +73,9 @@ public class Course {
 		this.version = version;
 		this.courseRealizations = courseRealizations;
 		this.yearOfStudy = yearOfStudy;
-		this.pic_name = pic_name;
-		this.mimetype = mimetype;
-		this.pic = pic;
 	}
 
-	public Course(MultipartFile file, String title2, YearOfStudy yos) {
-		this.pic_name = file.getName();
-		this.mimetype = file.getContentType();
-		try {
-			this.pic = file.getBytes();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public Course(String title2, YearOfStudy yos) {
 		this.title = title2;
 		this.yearOfStudy = yos;
 	}
@@ -188,34 +170,10 @@ public class Course {
 	public void setNumberOfExcercises(int numberOfExcercises) {
 		this.numberOfExcercises = numberOfExcercises;
 	}
-
-	public String getPic_name() {
-		return pic_name;
-	}
-
-	public void setPic_name(String pic_name) {
-		this.pic_name = pic_name;
-	}
-
-	public String getMimetype() {
-		return mimetype;
-	}
-
-	public void setMimetype(String mimetype) {
-		this.mimetype = mimetype;
-	}
-
-	public byte[] getPic() {
-		return pic;
-	}
-
-	public void setPic(byte[] pic) {
-		this.pic = pic;
-	}
 	
 	public CourseDTO toDTO()
 	{
-		return new CourseDTO(this.id, this.title, this.ects, this.obligatory, this.numberOfLectures, this.numberOfExcercises, this.yearOfStudy.getTitle(), this.pic_name, this.mimetype, this.pic);
+		return new CourseDTO(this.id, this.title, this.ects, this.obligatory, this.numberOfLectures, this.numberOfExcercises, this.yearOfStudy.getTitle());
 	}
 
 	@Override

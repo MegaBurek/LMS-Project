@@ -18,17 +18,9 @@ public class CourseDTO {
 
 	private String yearOfStudy;
 
-	private String pic_name;
-
-	private String mimetype;
-
-	private byte[] pic;
-
-
-	
 	
 	public CourseDTO(Long id, String title, int ects, boolean obligatory, int numberOfLectures, int numberOfExcercises,
-			String yearOfStudy, String pic_name, String mimetype, byte[] pic) {
+			String yearOfStudy) {
 		this.id = id;
 		this.title = title;
 		this.ects = ects;
@@ -36,9 +28,6 @@ public class CourseDTO {
 		this.numberOfLectures = numberOfLectures;
 		this.numberOfExcercises = numberOfExcercises;
 		this.yearOfStudy = yearOfStudy;
-		this.pic_name = pic_name;
-		this.mimetype = mimetype;
-		this.pic = pic;
 	}
 
 	public Long getId() {
@@ -97,30 +86,6 @@ public class CourseDTO {
 
 	public void setYearOfStudy(String yearOfStudy) {
 		this.yearOfStudy = yearOfStudy;
-	}
-
-	public String getPic_name() {
-		return pic_name;
-	}
-
-	public void setPic_name(String pic_name) {
-		this.pic_name = pic_name;
-	}
-
-	public String getMimetype() {
-		return mimetype;
-	}
-
-	public void setMimetype(String mimetype) {
-		this.mimetype = mimetype;
-	}
-
-	public byte[] getPic() {
-		return pic;
-	}
-
-	public void setPic(byte[] pic) {
-		this.pic = pic;
 	}
 	
 	

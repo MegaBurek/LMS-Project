@@ -1,13 +1,28 @@
 <mat-card class="main-content">
-    <mat-card-header>
-      <div class="flex-title">
-        <div class="left">
-          <mat-card-title class="card-title">Russia Univeristy</mat-card-title>
-          <mat-card-subtitle class="card-subtitle">Browse information and view location</mat-card-subtitle>
-        </div>
-        <div class="right">
-          <mat-icon svgIcon="russia" class="title-flag"></mat-icon>
+  <mat-card-header>
+    <div class="flex-title">
+      <div class="left">
+        <mat-card-title class="card-title">Russia Univeristy</mat-card-title>
+        <mat-card-subtitle class="card-subtitle">Browse information and view location</mat-card-subtitle>
+      </div>
+      <div class="right">
+        <mat-icon svgIcon="russia" class="title-flag"></mat-icon>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="flex-content">
+      <div class="left">
+        <div id="map" class="map"></div>
+      </div>
+      <div class="right">
+        <div class="flex-uni-info">
+          <h2 class="flex-uni-info-title">Everest University of Russia</h2>
+          <h3 class="flex-uni-info-desc">Address: Moscow</h3>
+          <h3 class="flex-uni-info-desc">Street: Blyat Dr 12</h3>
+          <button mat-raised-button (click)="facultyNavigate()">View Faculties</button>
         </div>
       </div>
-    </mat-card-header>
-  </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>

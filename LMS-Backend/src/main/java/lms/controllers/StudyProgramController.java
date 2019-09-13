@@ -20,11 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import lms.domain.Center;
 import lms.domain.StudyProgram;
 import lms.dto.StudyProgramDTO;
 import lms.repository.StudyProgramRepository;
-import lms.service.CenterService;
 import lms.service.StudyProgramService;
 import lms.utils.View.HideOptionalProperties;
 
@@ -35,9 +33,6 @@ public class StudyProgramController {
 
 	@Autowired
 	StudyProgramService studyProgramService;
-	
-	@Autowired
-	CenterService centerService;
 	
 	@Autowired
 	StudyProgramRepository studyProgramRepository;
@@ -89,19 +84,19 @@ public class StudyProgramController {
 		return new ResponseEntity<Iterable<StudyProgram>>(studyProgramService.getStudyProgramByName(name), HttpStatus.OK);
 	}
 	
-	@PostMapping("/file/upload")
-	@Secured("ROLE_ADMIN")
-	public String uploadMultipartFile(@RequestParam("file") MultipartFile file, @RequestParam("name") String name, @RequestParam("center") String center) {
-		try {
-			// save file to PostgreSQL
-			Center c = centerService.getCenterId(Long.valueOf(center)).get();
-			StudyProgram filemode = new StudyProgram(file, name, c);
-			studyProgramRepository.save(filemode);
-			return "File uploaded successfully! -> filename = " + file.getOriginalFilename();
-		} catch (Exception e) {
-			return "FAIL! Maybe You had uploaded the file before or the file's size > 500KB";
-		}
-	}
+//	@PostMapping("/file/upload")
+//	@Secured("ROLE_ADMIN")
+//	public String uploadMultipartFile(@RequestParam("file") MultipartFile file, @RequestParam("name") String name, @RequestParam("center") String center) {
+//		try {
+//			// save file to PostgreSQL
+//			Center c = centerService.getCenterId(Long.valueOf(center)).get();
+//			StudyProgram filemode = new StudyProgram(file, name, c);
+//			studyProgramRepository.save(filemode);
+//			return "File uploaded successfully! -> filename = " + file.getOriginalFilename();
+//		} catch (Exception e) {
+//			return "FAIL! Maybe You had uploaded the file before or the file's size > 500KB";
+//		}
+//	}
 	
 	
 }

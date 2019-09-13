@@ -27,10 +27,13 @@ import { AddAddressComponent } from './administrative-panel/add-address/add-addr
 // import { StudyProgramComponent } from './faculties/study-program/study-program.component';
 // import { AddStudyProgramComponent } from './faculties/study-program/add-study-program/add-study-program.component';
 import { LoginErrorDialogComponenet } from './log-in/loginErrorDialog.component';
-import { UniversityDetailComponent } from './university-detail/university-detail.component';
+
 import { BulgariaUniversityComponent } from './university-detail/bulgaria-university/bulgaria-university.component';
 import { RussiaUniversityComponent } from './university-detail/russia-university/russia-university.component';
 import { GermanyUniversityComponent } from './university-detail/germany-university/germany-university.component';
+import { GermanyFacultiesComponent } from './faculties/germany-faculties/germany-faculties.component';
+import { RussiaFacultiesComponent } from './faculties/russia-faculties/russia-faculties.component';
+import { BulgariaFacultiesComponent } from './faculties/bulgaria-faculties/bulgaria-faculties.component';
 
 
 @NgModule({
@@ -54,10 +57,12 @@ import { GermanyUniversityComponent } from './university-detail/germany-universi
     AdministrativePanelComponent,
     UserManagementComponent,
     AddAddressComponent,
-    UniversityDetailComponent,
     BulgariaUniversityComponent,
     RussiaUniversityComponent,
-    GermanyUniversityComponent
+    GermanyUniversityComponent,
+    GermanyFacultiesComponent,
+    RussiaFacultiesComponent,
+    BulgariaFacultiesComponent
   ],
   imports: [
     BrowserModule,

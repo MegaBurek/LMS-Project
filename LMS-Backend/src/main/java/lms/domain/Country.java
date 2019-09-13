@@ -16,6 +16,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Where;
 
+import lms.dto.CountryDTO;
+
 
 @Entity
 @Where(clause = "deleted = 'false'")
@@ -101,23 +103,8 @@ public class Country {
 		this.places = places;
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		Country object = (Country) o;
-		if (object.id == null || id == null) {
-			return false;
-		}
-		return Objects.equals(id, object.id);
+	public CountryDTO toDTO() {
+		return new CountryDTO(this.name);
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hashCode(id);
-	}
+	
 }

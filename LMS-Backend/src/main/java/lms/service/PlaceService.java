@@ -1,10 +1,14 @@
 package lms.service;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lms.domain.Place;
+import lms.dto.PlaceDTO;
 import lms.repository.PlaceRepository;
 
 @Service
@@ -15,8 +19,16 @@ public class PlaceService {
 
 	public PlaceService() {}
 	
-	public Iterable<Place> getAllPlace() {
-		return placeRepository.findAll();
+	public Iterable<PlaceDTO> getAllPlace() {
+		Iterable<Place> ps = placeRepository.findAll();
+		Set<PlaceDTO> ret = new HashSet<>();
+		
+		for (Place p : ps) {
+			ret.add(p.toDTO());
+		}
+		
+		return ret;
+			
 	}
 
 	public Optional<Place> getPlaceId(Long id) {

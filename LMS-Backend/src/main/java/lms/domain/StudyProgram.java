@@ -48,9 +48,6 @@ public class StudyProgram {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Faculty faculty;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Center center;
-
 	@OneToMany(mappedBy = "studyProgram", fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private Set<YearOfStudy> yearsOfStudy;
 
@@ -64,7 +61,7 @@ public class StudyProgram {
 	public StudyProgram() {}
 
 	public StudyProgram(Long id, @Size(max = 50) String name, @NotNull Boolean deleted, int version,
-			Teacher rukovodilac, Faculty faculty, Center center, Set<YearOfStudy> yearsOfStudy, String pic_name,
+			Teacher rukovodilac, Faculty faculty, Set<YearOfStudy> yearsOfStudy, String pic_name,
 			String mimetype, byte[] pic) {
 		super();
 		this.id = id;
@@ -73,7 +70,6 @@ public class StudyProgram {
 		this.version = version;
 		this.rukovodilac = rukovodilac;
 		this.faculty = faculty;
-		this.center = center;
 		this.yearsOfStudy = yearsOfStudy;
 		this.pic_name = pic_name;
 		this.mimetype = mimetype;
@@ -92,26 +88,17 @@ public class StudyProgram {
 		this.name = name2;
 	}
 
-	public StudyProgram(MultipartFile file, String name2, Center c) {
-		this.pic_name = file.getName();
-		this.mimetype = file.getContentType();
-		try {
-		this.pic = file.getBytes();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		this.name = name2;
-		this.center = c;
-	}
-
-
-	public Center getCenter() {
-		return center;
-	}
-
-	public void setCenter(Center center) {
-		this.center = center;
-	}
+//	public StudyProgram(MultipartFile file, String name2, Center c) {
+//		this.pic_name = file.getName();
+//		this.mimetype = file.getContentType();
+//		try {
+//		this.pic = file.getBytes();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		this.name = name2;
+//		this.center = c;
+//	}
 
 	public String getPic_name() {
 		return pic_name;
@@ -200,7 +187,7 @@ public class StudyProgram {
 			ret.add(yos.toDTO());
 		
 		
-		return new StudyProgramDTO(this.id, this.name,  this.center.getName(), ret, this.pic_name, this.mimetype, this.pic);
+		return new StudyProgramDTO(this.id, this.name, ret, this.pic_name, this.mimetype, this.pic);
 	}
 
 

@@ -25,12 +25,10 @@ public class StudyProgramDTO {
 	
 	
 
-	public StudyProgramDTO(Long id, String name, String rukovodilac, String center, Set<YearOfStudyDTO> yearsOfStudy,
+	public StudyProgramDTO(Long id, String name, Set<YearOfStudyDTO> yearsOfStudy,
 			String pic_name, String mimetype, byte[] pic) {
 		this.id = id;
 		this.name = name;
-		this.rukovodilac = rukovodilac;
-		this.center = center;
 		this.yearsOfStudy = yearsOfStudy;
 		this.pic_name = pic_name;
 		this.mimetype = mimetype;

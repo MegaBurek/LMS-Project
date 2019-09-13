@@ -1,11 +1,14 @@
 package lms.service;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lms.domain.Country;
+import lms.dto.CountryDTO;
 import lms.repository.CountryRepository;
 
 @Service
@@ -17,8 +20,17 @@ public class CountryService {
 	public CountryService() {
 	}
 
-	public Iterable<Country> getAllCountry() {
-		return countryRepository.findAll();
+	public Iterable<CountryDTO> getAllCountry() {
+		
+		Iterable<Country> cs = countryRepository.findAll();
+		Set<CountryDTO> ret = new HashSet<>();
+		
+		for (Country c : cs) {
+			ret.add(c.toDTO());
+		}
+		
+		return ret;
+			
 	}
 
 	public void addCountry(Country c) {

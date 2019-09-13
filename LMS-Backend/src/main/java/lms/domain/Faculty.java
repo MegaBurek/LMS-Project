@@ -38,10 +38,6 @@ public class Faculty {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private University university;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	private Center center;
-	
-	
 	@OneToMany(mappedBy = "faculty", fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })	
 	private Set<StudyProgram> studyPrograms;
 	
@@ -55,7 +51,7 @@ public class Faculty {
 	
 	
 	public Faculty(Long id, @Size(max = 50) String name, @NotNull Boolean deleted, int version, University university,
-			Set<StudyProgram> studyPrograms, Teacher dekan, Center center) {
+			Set<StudyProgram> studyPrograms, Teacher dekan) {
 		this.id = id;
 		this.name = name;
 		this.deleted = deleted;
@@ -63,19 +59,6 @@ public class Faculty {
 		this.university = university;
 		this.studyPrograms = studyPrograms;
 		this.dekan = dekan;
-		this.center = center;
-	}
-
-
-
-	public Center getCenter() {
-		return center;
-	}
-
-
-
-	public void setCenter(Center center) {
-		this.center = center;
 	}
 
 

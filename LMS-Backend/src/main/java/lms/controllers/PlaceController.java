@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import lms.domain.Place;
+import lms.dto.PlaceDTO;
 import lms.service.PlaceService;
 import lms.utils.View.HideOptionalProperties;
 @CrossOrigin(origins = { "http://localhost:4200" })
@@ -31,8 +32,8 @@ public class PlaceController {
 
 	@JsonView(HideOptionalProperties.class)
 	@RequestMapping
-	public ResponseEntity<Iterable<Place>> getAllPlace() {
-		return new ResponseEntity<Iterable<Place>>(placeService.getAllPlace(), HttpStatus.OK);
+	public ResponseEntity<Iterable<PlaceDTO>> getAllPlace() {
+		return new ResponseEntity<Iterable<PlaceDTO>>(placeService.getAllPlace(), HttpStatus.OK);
 	}
 	
 	@JsonView(HideOptionalProperties.class)
@@ -46,21 +47,18 @@ public class PlaceController {
 	}
 
 	@PostMapping
-	@Secured("ROLE_ADMIN")
 	public ResponseEntity<Place> addPlace(@RequestBody Place place) {
 		placeService.addPlace(place);
 		return new ResponseEntity<Place>(place, HttpStatus.CREATED);
 	}
 
 	@PutMapping(value = "/{id}")
-	@Secured("ROLE_ADMIN")
 	public ResponseEntity<Place> updatePlace(@PathVariable Long id, @RequestBody Place place) {
 		placeService.updatePlace(id, place);
 		return new ResponseEntity<Place>(place, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping(value = "/{id}")
-	@Secured("ROLE_ADMIN")
 	public ResponseEntity<Place> removePlace(@PathVariable Long id) {
 		try {
 			placeService.removePlace(id);
