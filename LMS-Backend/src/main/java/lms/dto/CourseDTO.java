@@ -16,18 +16,14 @@ public class CourseDTO {
 
 	private int numberOfExcercises;
 
-	private String yearOfStudy;
-
 	
-	public CourseDTO(Long id, String title, int ects, boolean obligatory, int numberOfLectures, int numberOfExcercises,
-			String yearOfStudy) {
+	public CourseDTO(Long id, String title, int ects, boolean obligatory, int numberOfLectures, int numberOfExcercises) {
 		this.id = id;
 		this.title = title;
 		this.ects = ects;
 		this.obligatory = obligatory;
 		this.numberOfLectures = numberOfLectures;
 		this.numberOfExcercises = numberOfExcercises;
-		this.yearOfStudy = yearOfStudy;
 	}
 
 	public Long getId() {
@@ -78,15 +74,6 @@ public class CourseDTO {
 		this.numberOfExcercises = numberOfExcercises;
 	}
 
-	
-
-	public String getYearOfStudy() {
-		return yearOfStudy;
-	}
-
-	public void setYearOfStudy(String yearOfStudy) {
-		this.yearOfStudy = yearOfStudy;
-	}
 	
 	
 

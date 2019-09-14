@@ -12,6 +12,10 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0; 
 
+/*add Set<CourseTeachings> to add to Teacher class*/
+/*add Set<CourseAttendings> to add to Student class*/
+/*add Set<StudentYears> to add to Student class*/
+
 /*countries*/
 INSERT INTO `wis`.`country`(`id`,`name`,`deleted`,`version`) VALUES (1,'Germany', b'0',0);
 INSERT INTO `wis`.`country`(`id`,`name`,`deleted`,`version`) VALUES (2,'Bulgarija', b'0',0);
@@ -33,7 +37,7 @@ INSERT INTO `wis`.`university`(`id`,`deleted`,`name`,`version`,`year_of_establis
 INSERT INTO `wis`.`university`(`id`,`deleted`,`name`,`version`,`year_of_establishment`,`address_id`) VALUES (2,b'0','Everst Univeristy of Sofia',0,'2006-08-03',2);
 INSERT INTO `wis`.`university`(`id`,`deleted`,`name`,`version`,`year_of_establishment`,`address_id`) VALUES (3,b'0','Everst Univeristy of Moscow',0,'2008-06-03',3);
 
-/*Courses*/
+/*Courses*//*add Set<CourseRealization>*/
 /*Faculty of Software Engineering and Systems*/
 INSERT INTO `wis`.`course`(`id`,`deleted`,`title`,`ects`,`obligatory`,`description`, `number_of_lectures`,`number_of_exercises`, `version`) VALUES (1,b'0','Internet Software Architecture',8,b'1','High level structures of a software system and the discipline of creating such structures and systems. Each structure comprises software elements, relations among them, and properties of both elements and relations. The architecture of a software system is a metaphor, analogous to the architecture of a building. It functions as a blueprint for the system and the developing project, laying out the tasks necessary to be executed by the design teams.',12,13,0);
 INSERT INTO `wis`.`course`(`id`,`deleted`,`title`,`ects`,`obligatory`,`description`, `number_of_lectures`,`number_of_exercises`, `version`) VALUES (2,b'0','Object Oriented Programming 2',8,b'1','Interpreted languages are read by a program called an interpreter and are executed by that program. While they are as portable as their interpreter and have no long compile times, interpreted languages are usually much slower than an equivalent compiled program.',12,13,0);
@@ -59,7 +63,7 @@ INSERT INTO `wis`.`course`(`id`,`deleted`,`title`,`ects`,`obligatory`,`descripti
 INSERT INTO `wis`.`course`(`id`,`deleted`,`title`,`ects`,`obligatory`,`description`, `number_of_lectures`,`number_of_exercises`, `version`) VALUES (16,b'0','German',8,b'1','One of the major languages of the world, German is a native language to almost 100 million people worldwide and the most widely spoken native language in the European Union. German is the third most commonly spoken foreign language in the EU after English and French, making it the second biggest language in the EU in terms of overall speakers.',12,13,0);
 
 
-/*Faculties*/
+/*Faculties*/ /*add dekan to faculty*/ /*add Set<StudyPrograms to faculties*/
 /*Hamburg Faculties*/
 INSERT INTO `wis`.`faculty`(`id`,`deleted`,`name`,`version`,`university_id`) VALUES (1,b'0','Technical Science',1,1);
 INSERT INTO `wis`.`faculty`(`id`,`deleted`,`name`,`version`,`university_id`) VALUES (2,b'0','Languages',1,1);
@@ -97,7 +101,7 @@ INSERT INTO `wis`.`outcome`(`id`,`deleted`,`description`,`version`,`course_id`) 
 INSERT INTO `wis`.`outcome`(`id`,`deleted`,`description`,`version`,`course_id`) VALUES (21,b'0','Proficiency in A2 German Language',0,16);
 
 
-/*Course Realization*/
+/*Course Realization*/ /*add Set<CourseTeachings>, Set<CourseAttending> and Set<Evaluation>*/
 INSERT INTO `wis`.`course_realization`(`id`,`deleted`,`end_date`,`start_date`,`version`,`course_id`) VALUES (1,b'0','2019-02-03','2019-02-05',0,2);
 INSERT INTO `wis`.`course_realization`(`id`,`deleted`,`end_date`,`start_date`,`version`,`course_id`) VALUES (2,b'0','2019-02-03','2019-02-05',0,3);
 INSERT INTO `wis`.`course_realization`(`id`,`deleted`,`end_date`,`start_date`,`version`,`course_id`) VALUES (3,b'0','2019-02-03','2019-02-05',0,15);
@@ -110,12 +114,6 @@ INSERT INTO `wis`.`course_realization`(`id`,`deleted`,`end_date`,`start_date`,`v
 /*Course Attending*/
 INSERT INTO `wis`.`course_attending`(`deleted`, `version`, `student_id`, `course_realization_id`, `grade`) VALUES (b'0', 0,1,1,56);
 
-/*Year of Study*/ /*add courses to years of study*/
-INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`) VALUES (0, 1, 0);
-INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`) VALUES (0, 2, 0);
-INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`) VALUES (0, 3, 0);
-INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`) VALUES (0, 4, 0);
-
 /*Course Type*/
 INSERT INTO `wis`.`course_type`(`id`,`deleted`, `name`, `version`) VALUES (1,b'0', 'Practical', 1);
 INSERT INTO `wis`.`course_type`(`id`,`deleted`, `name`, `version`) VALUES (2,b'0', 'Exercises', 1);
@@ -125,13 +123,13 @@ INSERT INTO `wis`.`course_type`(`id`,`deleted`, `name`, `version`) VALUES (3,b'0
 INSERT INTO `wis`.`course_teaching`(`id`,`deleted`,`number_of_classes`, `version`, `course_realization_id`,`course_type_id`,`teacher_id`) VALUES (1, b'0',12,1,1,2,1);
 INSERT INTO `wis`.`course_teaching`(`id`,`deleted`,`number_of_classes`, `version`, `course_realization_id`,`course_type_id`,`teacher_id`) VALUES (2, b'0',10,1,4,3,2);
 
-/*Student Year*/
+/*Student Year*/ /*add Set<EvaluationStudentYear* to student year*/
 INSERT INTO `wis`.`student_year`(`id`,`deleted`,`registration_date`, `version`, `student_id`,`year_of_study_id`) VALUES (1, b'0','2014-05-12',1,1,2);
 INSERT INTO `wis`.`student_year`(`id`,`deleted`,`registration_date`, `version`, `student_id`,`year_of_study_id`) VALUES (2, b'0','2014-05-12',1,1,1);
 INSERT INTO `wis`.`student_year`(`id`,`deleted`,`registration_date`, `version`, `student_id`,`year_of_study_id`) VALUES (3, b'0','2014-05-12',1,2,1);
 INSERT INTO `wis`.`student_year`(`id`,`deleted`,`registration_date`, `version`, `student_id`,`year_of_study_id`) VALUES (4, b'0','2014-05-12',1,3,3);
 
-/*Evaluation*/
+/*Evaluation*/ /*add Set<EvalutationAttending*/
 INSERT INTO `wis`.`evaluation`(`id`,`end_date`,`start_date`, `total_points`, `course_realization_id`) VALUES (1,'2017-01-01','2016-06-12',89,2);
 INSERT INTO `wis`.`evaluation`(`id`,`end_date`,`start_date`, `total_points`, `course_realization_id`) VALUES (2,'2017-02-02','2016-08-12',89,7);
 
@@ -139,7 +137,7 @@ INSERT INTO `wis`.`evaluation`(`id`,`end_date`,`start_date`, `total_points`, `co
 INSERT INTO `wis`.`evaluation_attending`(`id`,`achieved_points`,`note`, `evaluation_id`, `student_year_id`) VALUES (1, 23, 'Nice', 1, 1);
 INSERT INTO `wis`.`evaluation_attending`(`id`,`achieved_points`,`note`, `evaluation_id`, `student_year_id`) VALUES (2, 20, 'Good Job', 2, 3);
 
-/*Study Programs*/
+/*Study Programs*/ /*add Set<YearOfStudy> to study programs*/
 INSERT INTO `wis`.`study_program`(`id`,`deleted`,`name`, `faculty_id`, `rukovodilac_id`) VALUES (1, b'0', 'Software Engineering', 1, 1);
 INSERT INTO `wis`.`study_program`(`id`,`deleted`,`name`, `faculty_id`, `rukovodilac_id`) VALUES (2, b'0', 'Software Engineering', 4, 1);
 INSERT INTO `wis`.`study_program`(`id`,`deleted`,`name`, `faculty_id`, `rukovodilac_id`) VALUES (3, b'0', 'Bio Engineering', 5, 2);
@@ -147,6 +145,42 @@ INSERT INTO `wis`.`study_program`(`id`,`deleted`,`name`, `faculty_id`, `rukovodi
 INSERT INTO `wis`.`study_program`(`id`,`deleted`,`name`, `faculty_id`, `rukovodilac_id`) VALUES (5, b'0', 'Business and Accounting', 6, 2);
 INSERT INTO `wis`.`study_program`(`id`,`deleted`,`name`, `faculty_id`, `rukovodilac_id`) VALUES (6, b'0', 'Lower Level Languages', 2, 2);
 INSERT INTO `wis`.`study_program`(`id`,`deleted`,`name`, `faculty_id`, `rukovodilac_id`) VALUES (7, b'0', 'Higher Level Languages', 7, 1);
+
+/*Year of Study*/ /*add Set<courses> to years of study*/ /*add Set<studentYear> to years of study*/
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 1, 0, 1);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 2, 0, 1);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 3, 0, 1);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 4, 0, 1);
+
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 1, 0, 2);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 2, 0, 2);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 3, 0, 2);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 4, 0, 2);
+
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 1, 0, 3);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 2, 0, 3);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 3, 0, 3);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 4, 0, 3);
+
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 1, 0, 4);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 2, 0, 4);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 3, 0, 4);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 4, 0, 4);
+
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 1, 0, 5);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 2, 0, 5);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 3, 0, 5);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 4, 0, 5);
+
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 1, 0, 6);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 2, 0, 6);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 3, 0, 6);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 4, 0, 6);
+
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 1, 0, 7);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 2, 0, 7);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 3, 0, 7);
+INSERT INTO `wis`.`year_of_study` (`deleted`, `number_of_year`, `version`,`study_program_id`) VALUES (0, 4, 0, 7);
 
 /*Titles of Teachers*/
 INSERT INTO `wis`.`title`(`id`,`date_chosen`,`date_stop`, `deleted`, `version`,`teacher_id`) VALUES (1, '2016-05-12', '2016-08-12', b'0',1, 1);

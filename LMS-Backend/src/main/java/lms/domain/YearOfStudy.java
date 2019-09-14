@@ -47,14 +47,12 @@ public class YearOfStudy {
 	@ManyToOne(cascade=CascadeType.ALL)
 	private StudyProgram studyProgram;
 	
-	private String title;
-	
 	public YearOfStudy() {
 	}
 	
 
 	public YearOfStudy(Long id, @NotNull Boolean deleted, int version, int numberOfYear, Set<Course> courses,
-			Set<StudentYear> studentYears, StudyProgram studyProgram, String title) {
+			Set<StudentYear> studentYears, StudyProgram studyProgram) {
 		this.id = id;
 		this.deleted = deleted;
 		this.version = version;
@@ -62,20 +60,17 @@ public class YearOfStudy {
 		this.courses = courses;
 		this.studentYears = studentYears;
 		this.studyProgram = studyProgram;
-		this.title = title;
 	}
 
 
 
-	public YearOfStudy(MultipartFile file, String title2, String numberOfYear, StudyProgram sp) {
-		this.title = title2;
+	public YearOfStudy(MultipartFile file, String numberOfYear, StudyProgram sp) {
 		this.studyProgram = sp;
 		this.numberOfYear = Integer.parseInt(numberOfYear);
 	}
 	
 
-	public YearOfStudy(String title, String numberOfYear, StudyProgram sp) {
-		this.title = title;
+	public YearOfStudy(String numberOfYear, StudyProgram sp) {
 		this.numberOfYear = Integer.parseInt(numberOfYear);
 		this.studyProgram = sp;
 	}
@@ -141,15 +136,6 @@ public class YearOfStudy {
 	}
 	
 	
-	public String getTitle() {
-		return title;
-	}
-
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
 	public YearOfStudyDTO toDTO()
 	{
 		Set<StudentYearDTO> sy = new HashSet<>();
@@ -160,7 +146,7 @@ public class YearOfStudy {
 		for(Course c:this.courses)
 			cd.add(c.toDTO());
 		
-		return new YearOfStudyDTO(this.id, this.title, this.numberOfYear, cd, sy, this.studyProgram.getName());
+		return new YearOfStudyDTO(this.id, this.numberOfYear, cd, sy, this.studyProgram.getName());
 	}
 
 

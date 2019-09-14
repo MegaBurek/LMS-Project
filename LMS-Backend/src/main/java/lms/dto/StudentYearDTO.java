@@ -11,13 +11,13 @@ public class StudentYearDTO {
 
 	private LocalDate registrationDate;
 
-	private String yearOfStudy;
+	private int yearOfStudy;
 
 	private Long studentId;
 
 	
 
-	public StudentYearDTO(java.lang.Long id2, LocalDate registrationDate, String yearOfStudy, Long student) {
+	public StudentYearDTO(java.lang.Long id2, LocalDate registrationDate, int yearOfStudy, Long student) {
 		this.id = id2;
 		this.registrationDate = registrationDate;
 		this.yearOfStudy = yearOfStudy;
@@ -42,11 +42,11 @@ public class StudentYearDTO {
 
 	
 
-	public String getYearOfStudy() {
+	public int getYearOfStudy() {
 		return yearOfStudy;
 	}
 
-	public void setYearOfStudy(String yearOfStudy) {
+	public void setYearOfStudy(int yearOfStudy) {
 		this.yearOfStudy = yearOfStudy;
 	}
 

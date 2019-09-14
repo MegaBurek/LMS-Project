@@ -174,7 +174,7 @@ public class Course {
 	
 	public CourseDTO toDTO()
 	{
-		return new CourseDTO(this.id, this.title, this.ects, this.obligatory, this.numberOfLectures, this.numberOfExercises, this.yearOfStudy.getTitle());
+		return new CourseDTO(this.id, this.title, this.ects, this.obligatory, this.numberOfLectures, this.numberOfExercises);
 	}
 
 	@Override

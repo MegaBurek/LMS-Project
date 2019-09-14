@@ -6,8 +6,6 @@ public class YearOfStudyDTO {
 	
 	private Long id;
 	
-	private String title;
-	
 	private int numberOfYear;
 
 	private Set<CourseDTO> courses;
@@ -22,10 +20,9 @@ public class YearOfStudyDTO {
 	
 
 	
-	public YearOfStudyDTO(Long id, String title, int numberOfYear, Set<CourseDTO> courses,
+	public YearOfStudyDTO(Long id, int numberOfYear, Set<CourseDTO> courses,
 			Set<StudentYearDTO> studentYears, String studyProgram) {
 		this.id = id;
-		this.title = title;
 		this.numberOfYear = numberOfYear;
 		this.courses = courses;
 		this.studentYears = studentYears;
@@ -70,14 +67,6 @@ public class YearOfStudyDTO {
 
 	public void setStudyProgram(String studyProgram) {
 		this.studyProgram = studyProgram;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	

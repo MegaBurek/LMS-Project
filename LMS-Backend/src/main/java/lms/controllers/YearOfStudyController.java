@@ -81,34 +81,33 @@ public class YearOfStudyController {
 		return new ResponseEntity<YearOfStudy>(HttpStatus.NO_CONTENT);
 	}
 	
-	@PostMapping("/file/upload")
-	@Secured("ROLE_ADMIN")
-	public String uploadMultipartFile(@RequestParam("file") MultipartFile file, @RequestParam("title") String title, @RequestParam("numberOfYear") String numberOfYear, @RequestParam("studyProgram") String StudyProgram) {
-		try {
-			// save file to PostgreSQL
-			StudyProgram sp = studyProgramService.getStudyProgramId(Long.valueOf(StudyProgram)).get();
-			YearOfStudy filemode = new YearOfStudy(file, title, numberOfYear, sp);
-			yearOfStudyRepository.save(filemode);
-			return "File uploaded successfully! -> filename = " + file.getOriginalFilename();
-		} catch (Exception e) {
-			return "FAIL! Maybe You had uploaded the file before or the file's size > 500KB";
-		}
-	}
-	
-	@PostMapping(value = "/upload")
-	@Secured("ROLE_ADMIN")
-	public String addYearOfStudy2(@RequestParam("title") String title, @RequestParam("numberOfYear") String numberOfYear, @RequestParam("studyProgram") String StudyProgram) {
-		try {
-			StudyProgram sp = studyProgramService.getStudyProgramId(Long.valueOf(StudyProgram)).get();
-			YearOfStudy yos = new YearOfStudy(title, numberOfYear, sp);
-			yearOfStudyService.addYearOfStudy(yos);
-			System.out.println("1");
-			return "SUCCESS";
-		} catch(Exception e) {
-			System.out.println("2");
-			return "FAIL";
-
-		}
-		
-	}
+//	@PostMapping("/file/upload")
+//	@Secured("ROLE_ADMIN")
+//	public String uploadMultipartFile(@RequestParam("file") MultipartFile file, @RequestParam("title") String title, @RequestParam("numberOfYear") String numberOfYear, @RequestParam("studyProgram") String StudyProgram) {
+//		try {
+//			StudyProgram sp = studyProgramService.getStudyProgramId(Long.valueOf(StudyProgram)).get();
+//			YearOfStudy filemode = new YearOfStudy(file, title, numberOfYear, sp);
+//			yearOfStudyRepository.save(filemode);
+//			return "File uploaded successfully! -> filename = " + file.getOriginalFilename();
+//		} catch (Exception e) {
+//			return "FAIL! Maybe You had uploaded the file before or the file's size > 500KB";
+//		}
+//	}
+//	
+//	@PostMapping(value = "/upload")
+//	@Secured("ROLE_ADMIN")
+//	public String addYearOfStudy2(@RequestParam("title") String title, @RequestParam("numberOfYear") String numberOfYear, @RequestParam("studyProgram") String StudyProgram) {
+//		try {
+//			StudyProgram sp = studyProgramService.getStudyProgramId(Long.valueOf(StudyProgram)).get();
+//			YearOfStudy yos = new YearOfStudy(title, numberOfYear, sp);
+//			yearOfStudyService.addYearOfStudy(yos);
+//			System.out.println("1");
+//			return "SUCCESS";
+//		} catch(Exception e) {
+//			System.out.println("2");
+//			return "FAIL";
+//
+//		}
+//		
+//	}
 }

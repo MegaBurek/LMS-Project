@@ -142,8 +142,6 @@ public class StudentYear {
 
 
 
-
-
 	public void setEvaluationAttendings(Set<EvaluationAttending> evaluationAttendings) {
 		this.evaluationAttendings = evaluationAttendings;
 	}
@@ -151,7 +149,7 @@ public class StudentYear {
 
 	public StudentYearDTO toDTO()
 	{
-		return new StudentYearDTO(this.id, this.registrationDate, this.yearOfStudy.getTitle(), this.student.getId());
+		return new StudentYearDTO(this.id, this.registrationDate, this.yearOfStudy.getNumberOfYear(), this.student.getId());
 	}
 
 

@@ -40,21 +40,16 @@ public class Place {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Country country;
 	
-	@OneToMany(mappedBy = "place", fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	private Set<Address> addresses;
-	
 	public Place() {}
 	
 	
 	
-	public Place(Long id, @Size(max = 50) String name, int version, @NotNull Boolean deleted, Country country,
-			Set<Address> addresses) {
+	public Place(Long id, @Size(max = 50) String name, int version, @NotNull Boolean deleted, Country country) {
 		this.id = id;
 		this.name = name;
 		this.version = version;
 		this.deleted = deleted;
 		this.country = country;
-		this.addresses = addresses;
 	}
 	
 	public Place(String name, Country country) {
@@ -102,14 +97,6 @@ public class Place {
 
 	public void setCountry(Country country) {
 		this.country = country;
-	}
-
-	public Set<Address> getAddresses() {
-		return addresses;
-	}
-
-	public void setAddresses(Set<Address> addresses) {
-		this.addresses = addresses;
 	}
 	
 	public PlaceDTO toDTO() {
