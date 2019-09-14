@@ -40,11 +40,12 @@ public class Course {
 
 	private boolean obligatory;
 	
+	@Size(max = 640)
 	private String description;
 
 	private int numberOfLectures;
 
-	private int numberOfExcercises;
+	private int numberOfExercises;
 
 	@Version
 	private int version = 0;
@@ -59,7 +60,7 @@ public class Course {
 	}
 
 	public Course(Long id, @NotNull Boolean deleted, @Size(max = 50) String title, int ects, boolean obligatory,
-			String description,int numberOfLectures, int numberOfExcercises, int version, Set<CourseRealization> courseRealizations,
+			String description,int numberOfLectures, int numberOfExercises, int version, Set<CourseRealization> courseRealizations,
 			YearOfStudy yearOfStudy) {
 		super();
 		this.id = id;
@@ -69,7 +70,7 @@ public class Course {
 		this.obligatory = obligatory;
 		this.description = description;
 		this.numberOfLectures = numberOfLectures;
-		this.numberOfExcercises = numberOfExcercises;
+		this.numberOfExercises = numberOfExercises;
 		this.version = version;
 		this.courseRealizations = courseRealizations;
 		this.yearOfStudy = yearOfStudy;
@@ -164,16 +165,16 @@ public class Course {
 	}
 
 	public int getNumberOfExcercises() {
-		return numberOfExcercises;
+		return numberOfExercises;
 	}
 
 	public void setNumberOfExcercises(int numberOfExcercises) {
-		this.numberOfExcercises = numberOfExcercises;
+		this.numberOfExercises = numberOfExcercises;
 	}
 	
 	public CourseDTO toDTO()
 	{
-		return new CourseDTO(this.id, this.title, this.ects, this.obligatory, this.numberOfLectures, this.numberOfExcercises, this.yearOfStudy.getTitle());
+		return new CourseDTO(this.id, this.title, this.ects, this.obligatory, this.numberOfLectures, this.numberOfExercises, this.yearOfStudy.getTitle());
 	}
 
 	@Override

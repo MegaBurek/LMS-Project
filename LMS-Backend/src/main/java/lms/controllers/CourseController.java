@@ -89,17 +89,17 @@ public class CourseController {
 		return new ResponseEntity<Iterable<Course>>(courseService.getCourseByTitle(title), HttpStatus.OK);
 	}
 	
-	@PostMapping("/file/upload")
-	@Secured("ROLE_ADMIN")
-	public String uploadMultipartFile(@RequestParam("file") MultipartFile file, @RequestParam("title") String title, @RequestParam("yearOfStudy") String YearOfStudy) {
-		try {
-			// save file to PostgreSQL
-			YearOfStudy yos = yearOfStudyservice.getYearOfStudyId(Long.valueOf(YearOfStudy)).get();
-			Course filemode = new Course(file, title, yos);
-			courseRepository.save(filemode);
-			return "File uploaded successfully! -> filename = " + file.getOriginalFilename();
-		} catch (Exception e) {
-			return "FAIL! Maybe You had uploaded the file before or the file's size > 500KB";
-		}
-	}
+//	@PostMapping("/file/upload")
+//	@Secured("ROLE_ADMIN")
+//	public String uploadMultipartFile(@RequestParam("file") MultipartFile file, @RequestParam("title") String title, @RequestParam("yearOfStudy") String YearOfStudy) {
+//		try {
+//			// save file to PostgreSQL
+//			YearOfStudy yos = yearOfStudyservice.getYearOfStudyId(Long.valueOf(YearOfStudy)).get();
+//			Course filemode = new Course(file, title, yos);
+//			courseRepository.save(filemode);
+//			return "File uploaded successfully! -> filename = " + file.getOriginalFilename();
+//		} catch (Exception e) {
+//			return "FAIL! Maybe You had uploaded the file before or the file's size > 500KB";
+//		}
+//	}
 }

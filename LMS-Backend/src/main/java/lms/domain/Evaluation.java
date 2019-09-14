@@ -28,9 +28,6 @@ public class Evaluation {
 	@OneToMany(mappedBy = "evaluation", fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private Set<EvaluationAttending> evaluationAttendings;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private EvaluationType evaluationType;
-	
 	private LocalDate startDate;
 	private LocalDate endDate;
 	
@@ -39,12 +36,10 @@ public class Evaluation {
 	public Evaluation() {
 	}
 
-	public Evaluation(Long id, CourseRealization courseRealization, Set<EvaluationAttending> evaluationAttendings,
-			EvaluationType evaluationType, LocalDate startDate, LocalDate endDate, int totalPoints) {
+	public Evaluation(Long id, CourseRealization courseRealization, Set<EvaluationAttending> evaluationAttendings, LocalDate startDate, LocalDate endDate, int totalPoints) {
 		this.id = id;
 		this.courseRealization = courseRealization;
 		this.evaluationAttendings = evaluationAttendings;
-		this.evaluationType = evaluationType;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.totalPoints = totalPoints;
@@ -72,14 +67,6 @@ public class Evaluation {
 
 	public void setEvaluationAttendings(Set<EvaluationAttending> evaluationAttendings) {
 		this.evaluationAttendings = evaluationAttendings;
-	}
-
-	public EvaluationType getEvaluationType() {
-		return evaluationType;
-	}
-
-	public void setEvaluationType(EvaluationType evaluationType) {
-		this.evaluationType = evaluationType;
 	}
 
 	public LocalDate getStartDate() {
@@ -114,7 +101,7 @@ public class Evaluation {
 			for(EvaluationAttending s:this.evaluationAttendings)
 				sy.add(s.toDTO());
 		
-		return new EvaluationDTO(this.id, this.courseRealization.getId(), sy, this.evaluationType.getTitle(), this.startDate, this.endDate, this.totalPoints);
+		return new EvaluationDTO(this.id, this.courseRealization.getId(), sy, this.startDate, this.endDate, this.totalPoints);
 	}
 	
 

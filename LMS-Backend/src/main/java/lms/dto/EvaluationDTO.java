@@ -11,8 +11,6 @@ public class EvaluationDTO {
 	
 	private Set<EvaluationAttendingDTO> evaluationAttendings;
 	
-	private String evaluationType;
-	
 	private LocalDate startDate;
 	private LocalDate endDate;
 	
@@ -23,11 +21,10 @@ public class EvaluationDTO {
 	
 
 	public EvaluationDTO(Long id, Long courseRealizationId, Set<EvaluationAttendingDTO> evaluationAttendings,
-			String evaluationType, LocalDate startDate, LocalDate endDate, int totalPoints) {
+			LocalDate startDate, LocalDate endDate, int totalPoints) {
 		this.id = id;
 		this.courseRealizationId = courseRealizationId;
 		this.evaluationAttendings = evaluationAttendings;
-		this.evaluationType = evaluationType;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.totalPoints = totalPoints;
@@ -84,15 +81,6 @@ public class EvaluationDTO {
 	public void setTotalPoints(int totalPoints) {
 		this.totalPoints = totalPoints;
 	}
-
-	public String getEvaluationType() {
-		return evaluationType;
-	}
-
-	public void setEvaluationType(String evaluationType) {
-		this.evaluationType = evaluationType;
-	}
-	
 	
 
 }

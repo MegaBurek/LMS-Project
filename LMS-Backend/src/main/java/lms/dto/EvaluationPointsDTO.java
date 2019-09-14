@@ -2,7 +2,6 @@ package lms.dto;
 
 public class EvaluationPointsDTO {
 	
-	private String evaluationType;
 	private int maxPoints;
 	private int pointsAchieved;
 	
@@ -10,21 +9,9 @@ public class EvaluationPointsDTO {
 	}
 	
 	
-	public EvaluationPointsDTO(String evaluationType, int maxPoints, int pointsAchieved) {
-		this.evaluationType = evaluationType;
+	public EvaluationPointsDTO(int maxPoints, int pointsAchieved) {
 		this.maxPoints = maxPoints;
 		this.pointsAchieved = pointsAchieved;
-	}
-
-	
-
-	public String getEvaluationType() {
-		return evaluationType;
-	}
-
-
-	public void setEvaluationType(String evaluationType) {
-		this.evaluationType = evaluationType;
 	}
 
 

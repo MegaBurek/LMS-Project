@@ -122,7 +122,7 @@ public class StudentService {
 		for (Evaluation e : ca.getCourseRealization().getEvaluations())
 			for (EvaluationAttending ea : e.getEvaluationAttendings())
 				if (ea.getStudentYear().getStudent() == ca.getStudent())
-					ret.add(new EvaluationPointsDTO(e.getEvaluationType().getTitle(), e.getTotalPoints(),
+					ret.add(new EvaluationPointsDTO(e.getTotalPoints(),
 							ea.getAchievedPoints()));
 
 		return ret;

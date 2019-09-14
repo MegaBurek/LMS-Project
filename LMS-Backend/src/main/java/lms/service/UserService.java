@@ -95,7 +95,7 @@ public class UserService implements CommandLineRunner{
 			
 			User user4 = new User("TCHR2", "123", "ROLE_TEACHER");
 			loginService.register(user4);
-			Teacher teacher2 = new Teacher("Sean", "Smith","700100",user3);
+			Teacher teacher2 = new Teacher("Rick", "Roll","700101",user4);
 			teacherService.addTeacher(teacher2);
 			
 			//students
@@ -111,7 +111,7 @@ public class UserService implements CommandLineRunner{
 			
 			User user7 = new User("STDNT3", "123", "ROLE_STUDENT");
 			loginService.register(user7);
-			Student student3 = new Student("John", "Cena", "250262",user6);
+			Student student3 = new Student("John", "Cena", "250262",user7);
 			studentService.addStudent(student3);
 			
 			

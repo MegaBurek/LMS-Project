@@ -37,27 +37,15 @@ public class TitleType {
 	public TitleType() {
 	}
 
-
-
-	
-
-
 	public TitleType(Long id, @Size(max = 50) String name, Title title) {
 		this.id = id;
 		this.name = name;
 		this.title = title;
 	}
 
-
-
-
-
-
 	public Long getId() {
 		return id;
 	}
-	
-	
 
 	public void setId(Long id) {
 		this.id = id;

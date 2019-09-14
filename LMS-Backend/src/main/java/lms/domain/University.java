@@ -1,5 +1,6 @@
 package lms.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class University {
 	@Size(max = 50)
 	private String name;
 
-	private Date yearOfEstablishment;
+	private LocalDate yearOfEstablishment;
 	
 	@NotNull
 	private Boolean deleted = false;
@@ -46,7 +47,7 @@ public class University {
 	
 	public University() {}
 	
-	public University(Long id, @Size(max = 50) String name, Date yearOfEstablishment, @NotNull Boolean deleted,
+	public University(Long id, @Size(max = 50) String name, LocalDate yearOfEstablishment, @NotNull Boolean deleted,
 			int version, Address address, Teacher rektor) {
 		this.id = id;
 		this.name = name;
@@ -87,11 +88,11 @@ public class University {
 		this.name = name;
 	}
 
-	public Date getYearOfEstablishment() {
+	public LocalDate getYearOfEstablishment() {
 		return yearOfEstablishment;
 	}
 
-	public void setYearOfEstablishment(Date yearOfEstablishment) {
+	public void setYearOfEstablishment(LocalDate yearOfEstablishment) {
 		this.yearOfEstablishment = yearOfEstablishment;
 	}
 

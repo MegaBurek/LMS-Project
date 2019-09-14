@@ -16,36 +16,22 @@ public class StudyProgramDTO {
 
 	private Set<YearOfStudyDTO> yearsOfStudy;
 
-	private String pic_name;
-
-	private String mimetype;
-
-	private byte[] pic;
-
 	
 	
 
-	public StudyProgramDTO(Long id, String name, Set<YearOfStudyDTO> yearsOfStudy,
-			String pic_name, String mimetype, byte[] pic) {
+	public StudyProgramDTO(Long id, String name, Set<YearOfStudyDTO> yearsOfStudy) {
 		this.id = id;
 		this.name = name;
 		this.yearsOfStudy = yearsOfStudy;
-		this.pic_name = pic_name;
-		this.mimetype = mimetype;
-		this.pic = pic;
 	}
 	
 	
 
-	public StudyProgramDTO(Long id, String name, String center, Set<YearOfStudyDTO> yearsOfStudy, String pic_name,
-			String mimetype, byte[] pic) {
+	public StudyProgramDTO(Long id, String name, String center, Set<YearOfStudyDTO> yearsOfStudy) {
 		this.id = id;
 		this.name = name;
 		this.center = center;
 		this.yearsOfStudy = yearsOfStudy;
-		this.pic_name = pic_name;
-		this.mimetype = mimetype;
-		this.pic = pic;
 	}
 
 
@@ -91,30 +77,6 @@ public class StudyProgramDTO {
 
 	public void setYearsOfStudy(Set<YearOfStudyDTO> yearsOfStudy) {
 		this.yearsOfStudy = yearsOfStudy;
-	}
-
-	public String getPic_name() {
-		return pic_name;
-	}
-
-	public void setPic_name(String pic_name) {
-		this.pic_name = pic_name;
-	}
-
-	public String getMimetype() {
-		return mimetype;
-	}
-
-	public void setMimetype(String mimetype) {
-		this.mimetype = mimetype;
-	}
-
-	public byte[] getPic() {
-		return pic;
-	}
-
-	public void setPic(byte[] pic) {
-		this.pic = pic;
 	}
 	
 	

@@ -51,18 +51,10 @@ public class StudyProgram {
 	@OneToMany(mappedBy = "studyProgram", fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private Set<YearOfStudy> yearsOfStudy;
 
-	private String pic_name;
-
-	private String mimetype;
-
-	@Lob
-	private byte[] pic;
-
 	public StudyProgram() {}
 
 	public StudyProgram(Long id, @Size(max = 50) String name, @NotNull Boolean deleted, int version,
-			Teacher rukovodilac, Faculty faculty, Set<YearOfStudy> yearsOfStudy, String pic_name,
-			String mimetype, byte[] pic) {
+			Teacher rukovodilac, Faculty faculty, Set<YearOfStudy> yearsOfStudy) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -71,20 +63,10 @@ public class StudyProgram {
 		this.rukovodilac = rukovodilac;
 		this.faculty = faculty;
 		this.yearsOfStudy = yearsOfStudy;
-		this.pic_name = pic_name;
-		this.mimetype = mimetype;
-		this.pic = pic;
 	}
 	
 
-	public StudyProgram(MultipartFile file, String name2, String center2) {
-		this.pic_name = file.getName();
-		this.mimetype = file.getContentType();
-		try {
-		this.pic = file.getBytes();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public StudyProgram(String name2) {
 		this.name = name2;
 	}
 
@@ -99,30 +81,6 @@ public class StudyProgram {
 //		this.name = name2;
 //		this.center = c;
 //	}
-
-	public String getPic_name() {
-		return pic_name;
-	}
-
-	public void setPic_name(String pic_name) {
-		this.pic_name = pic_name;
-	}
-
-	public String getMimetype() {
-		return mimetype;
-	}
-
-	public void setMimetype(String mimetype) {
-		this.mimetype = mimetype;
-	}
-
-	public byte[] getPic() {
-		return pic;
-	}
-
-	public void setPic(byte[] pic) {
-		this.pic = pic;
-	}
 
 	public Teacher getRukovodilac() {
 		return rukovodilac;
@@ -187,7 +145,7 @@ public class StudyProgram {
 			ret.add(yos.toDTO());
 		
 		
-		return new StudyProgramDTO(this.id, this.name, ret, this.pic_name, this.mimetype, this.pic);
+		return new StudyProgramDTO(this.id, this.name, ret);
 	}
 
 
