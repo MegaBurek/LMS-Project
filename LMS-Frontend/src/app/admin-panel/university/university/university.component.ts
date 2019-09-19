@@ -12,34 +12,32 @@ import { University } from 'src/app/model/university';
 
 export class UniversityComponent implements OnInit {
 
-  private university : University[];
 
 
-
-  constructor(private universityService: UniversityService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.universityService.getAllUniversities().subscribe(
-      data => {
-        this.university = data.map(item =>{
-            return{
-              id: item.id,
-              name: item.name,
-              year: item.year,
-              address: item.address,
-            };
+    // this.universityService.getAllUniversities().subscribe(
+    //   data => {
+    //     this.university = data.map(item =>{
+    //         return{
+    //           id: item.id,
+    //           name: item.name,
+    //           year: item.year,
+    //           address: item.address,
+    //         };
   
-        })
+    //     })
         
-      }
-    )
-    console.log(this.university[0].name);
+    //   }
+    // )
+    // console.log(this.university[0].name);
 
   }
 
-  enterUniversity(selectedUniversity){
+  // enterUniversity(selectedUniversity){
 
   
-  }
+  // }
 
 }

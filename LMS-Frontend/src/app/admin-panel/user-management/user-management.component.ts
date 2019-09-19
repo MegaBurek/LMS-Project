@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../model/student';
-import { UserManagementService } from '../../services/user-management-service/user-management.service';
 import { Teacher } from '../../model/teacher';
 import { Administration } from '../../model/administration';
 
@@ -19,28 +18,27 @@ export class UserManagementComponent implements OnInit {
   administrative: Administration[];
 
   constructor(
-    private userManagementService: UserManagementService
     ) {}
 
   ngOnInit() {
-    this.getStudents();
-    this.getTeachers();
-    this.getAdministrative();
+    // this.getStudents();
+    // this.getTeachers();
+    // this.getAdministrative();
   }
 
-  getStudents(){
-    this.userManagementService.getAllStudents()
-    .subscribe(students => this.students = students);
-  }
+  // getStudents(){
+  //   this.userManagementService.getAllStudents()
+  //   .subscribe(students => this.students = students);
+  // }
 
-  getTeachers(){
-    this.userManagementService.getAllTeachers()
-    .subscribe(teachers => this.teachers = teachers);
-  }
+  // getTeachers(){
+  //   this.userManagementService.getAllTeachers()
+  //   .subscribe(teachers => this.teachers = teachers);
+  // }
 
-  getAdministrative(){
-    this.userManagementService.getAllAdministrative()
-    .subscribe(administrative => this.administrative = administrative);
-  }
+  // getAdministrative(){
+  //   this.userManagementService.getAllAdministrative()
+  //   .subscribe(administrative => this.administrative = administrative);
+  // }
 
 }

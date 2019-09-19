@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import lms.domain.Faculty;
+import lms.dto.FacultyDTO;
 import lms.service.FacultyService;
 import lms.utils.View.HideOptionalProperties;
 
@@ -30,24 +31,37 @@ public class FacultyController {
 	@Autowired
 	FacultyService facultyService;
 
-	@JsonView(HideOptionalProperties.class)
 	@RequestMapping()
-	public ResponseEntity<Iterable<Faculty>> getAllFaculty() {
-		return new ResponseEntity<Iterable<Faculty>>(facultyService.getAllFaculty(), HttpStatus.OK);
+	public ResponseEntity<Iterable<Faculty>> GetAllFaculties() {
+		return new ResponseEntity<Iterable<Faculty>>(facultyService.getAllFaculties(), HttpStatus.OK);
 	}
 
-	@JsonView(HideOptionalProperties.class)
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Faculty> getFacultyById(@PathVariable Long id) {
-		Optional<Faculty> faculty = facultyService.getFacultyId(id);
-		if (faculty.isPresent()) {
-			return new ResponseEntity<Faculty>(faculty.get(), HttpStatus.OK);
-		}
-		return new ResponseEntity<Faculty>(HttpStatus.NOT_FOUND);
-	}
+//	@RequestMapping("/faculties")
+//	public ResponseEntity<Iterable<FacultyDTO>> getAllFacultiesDTO() {
+//		return new ResponseEntity<Iterable<FacultyDTO>>(facultyService.getAllFacultiesDTO(), HttpStatus.OK);
+//	}
+
+//	@JsonView(HideOptionalProperties.class)
+//	@GetMapping(value = "/{id}")
+//	public ResponseEntity<FacultyDTO> getFacultyById(@PathVariable Long id) {
+//		Optional<Faculty> faculty = facultyService.getFacultyId(id);
+//		if (faculty.isPresent()) {
+//			return new ResponseEntity<FacultyDTO>(faculty.toDTO(), HttpStatus.OK);
+//		}
+//		return new ResponseEntity<FacultyDTO>(HttpStatus.NOT_FOUND);
+//	}
+//	
+//	@JsonView(HideOptionalProperties.class)
+//	@GetMapping(value = "/{id}")
+//	public ResponseEntity<FacultyDTO> getFacultyById(@PathVariable Long id) {
+//		Optional<Faculty> faculty = facultyService.getFacultyId(id);
+//		if (faculty.isPresent()) {
+//			return new ResponseEntity<FacultyDTO>(faculty.toDTO(), HttpStatus.OK);
+//		}
+//		return new ResponseEntity<FacultyDTO>(HttpStatus.NOT_FOUND);
+//	}
 
 	@PostMapping
-	@Secured("ROLE_ADMIN")
 	public ResponseEntity<Faculty> addFaculty(@RequestBody Faculty faculty) {
 
 		facultyService.addFaculty(faculty);
@@ -55,14 +69,12 @@ public class FacultyController {
 	}
 
 	@PutMapping(value = "/{id}")
-	@Secured("ROLE_ADMIN")
 	public ResponseEntity<Faculty> updateCountry(@PathVariable Long id, @RequestBody Faculty faculty) {
 		facultyService.updateFaculty(id, faculty);
 		return new ResponseEntity<Faculty>(faculty, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping(value = "/{id}")
-	@Secured("ROLE_ADMIN")
 	public ResponseEntity<Faculty> removeFaculty(@PathVariable Long id) {
 		try {
 			facultyService.removeFaculty(id);

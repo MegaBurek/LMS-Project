@@ -55,7 +55,7 @@ export class GermanyUniversityComponent implements OnInit {
 
   }
 
-  facultyNavigate(){
-    this.router.navigateByUrl('/germany-faculties')
+  programsNavigate(){
+    this.router.navigateByUrl('/Universities/Germany/StudyPrograms')
   }
 }

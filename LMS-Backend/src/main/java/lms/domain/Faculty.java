@@ -18,6 +18,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Where;
 
+import lms.dto.FacultyDTO;
+
 @Entity
 @Where(clause = "deleted = 'false'")
 public class Faculty {
@@ -122,6 +124,12 @@ public class Faculty {
 	public void setStudyPrograms(Set<StudyProgram> studyPrograms) {
 		this.studyPrograms = studyPrograms;
 	}
+	
+	public FacultyDTO toDTO()
+	{
+		return new FacultyDTO(this.name, this.dekan.toDTO());
+	}
+	
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {

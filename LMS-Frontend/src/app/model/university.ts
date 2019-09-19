@@ -1,8 +1,8 @@
 import { Address } from './address';
+import { Faculty } from './faculty';
 
 export class University{
     id: number;
     name: String;
-    year: String;
-    address: Address = new Address;
+    faculty: Faculty;
 }

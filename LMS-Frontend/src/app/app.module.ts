@@ -31,9 +31,9 @@ import { LoginErrorDialogComponenet } from './log-in/loginErrorDialog.component'
 import { BulgariaUniversityComponent } from './university-detail/bulgaria-university/bulgaria-university.component';
 import { RussiaUniversityComponent } from './university-detail/russia-university/russia-university.component';
 import { GermanyUniversityComponent } from './university-detail/germany-university/germany-university.component';
-import { GermanyFacultiesComponent } from './faculties/germany-faculties/germany-faculties.component';
-import { RussiaFacultiesComponent } from './faculties/russia-faculties/russia-faculties.component';
-import { BulgariaFacultiesComponent } from './faculties/bulgaria-faculties/bulgaria-faculties.component';
+import { BulgariaStudyProgramsComponent } from './study-programs/bulgaria-study-programs/bulgaria-study-programs.component';
+import { GermanyStudyProgramsComponent } from './study-programs/germany-study-programs/germany-study-programs.component';
+import { RussiaStudyProgramsComponent } from './study-programs/russia-study-programs/russia-study-programs.component';
 
 
 @NgModule({
@@ -60,9 +60,12 @@ import { BulgariaFacultiesComponent } from './faculties/bulgaria-faculties/bulga
     BulgariaUniversityComponent,
     RussiaUniversityComponent,
     GermanyUniversityComponent,
-    GermanyFacultiesComponent,
-    RussiaFacultiesComponent,
-    BulgariaFacultiesComponent
+    BulgariaStudyProgramsComponent,
+    RussiaStudyProgramsComponent,
+    GermanyStudyProgramsComponent,
+    BulgariaStudyProgramsComponent,
+    GermanyStudyProgramsComponent,
+    RussiaStudyProgramsComponent
   ],
   imports: [
     BrowserModule,

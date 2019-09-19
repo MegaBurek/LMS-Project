@@ -18,9 +18,9 @@ import { GermanyUniversityComponent } from './university-detail/germany-universi
 import { RussiaUniversityComponent } from './university-detail/russia-university/russia-university.component';
 import { BulgariaUniversityComponent } from './university-detail/bulgaria-university/bulgaria-university.component';
 
-import { BulgariaFacultiesComponent } from './faculties/bulgaria-faculties/bulgaria-faculties.component';
-import { RussiaFacultiesComponent } from './faculties/russia-faculties/russia-faculties.component';
-import { GermanyFacultiesComponent } from './faculties/germany-faculties/germany-faculties.component';
+import { BulgariaStudyProgramsComponent } from './study-programs/bulgaria-study-programs/bulgaria-study-programs.component';
+import { RussiaStudyProgramsComponent } from './study-programs/russia-study-programs/russia-study-programs.component';
+import { GermanyStudyProgramsComponent } from './study-programs/germany-study-programs/germany-study-programs.component';
  
 
 const routes: Routes = [
@@ -40,9 +40,9 @@ const routes: Routes = [
   { path: 'Universities/Germany', component: GermanyUniversityComponent, data: { animation: { value: 'GermanyUniversityDetailPage' }} },
   { path: 'Universities/Bulgaria', component: BulgariaUniversityComponent, data: { animation: { value: 'BulgariaUniversityDetailPage' }} },
   { path: 'Universities/Russia', component: RussiaUniversityComponent, data: { animation: { value: 'RussiaUniversityDetailPage' }} },
-  { path: 'Universities/Russia/Faculties', component: RussiaFacultiesComponent, data: { animation: { value: 'RussiaFacultiesPage' }} },
-  { path: 'Universities/Germany/Faculties', component: GermanyFacultiesComponent, data: { animation: { value: 'GermanyFacultiesPage' }} },
-  { path: 'Faculties/Bulgaria/Faculties', component: BulgariaFacultiesComponent, data: { animation: { value: 'BulgariaFacultiesPage' }} }
+  { path: 'Universities/Russia/StudyPrograms', component: RussiaStudyProgramsComponent, data: { animation: { value: 'RussiaStudyProgramsPage' }} },
+  { path: 'Universities/Germany/StudyPrograms', component: GermanyStudyProgramsComponent, data: { animation: { value: 'GermanyStudyProgramsPage' }} },
+  { path: 'Universities/Bulgaria/StudyPrograms', component: BulgariaStudyProgramsComponent, data: { animation: { value: 'BulgariaStudyProgramsPage' }} }
 ];
 
 @NgModule({

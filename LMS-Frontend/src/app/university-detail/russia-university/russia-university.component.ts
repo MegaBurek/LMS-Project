@@ -47,8 +47,8 @@ export class RussiaUniversityComponent implements OnInit {
 
   }
 
-  facultyNavigate(){
-    this.router.navigateByUrl('/russia-faculties')
+  programsNavigate(){
+    this.router.navigateByUrl('/Universities/Russia/StudyPrograms')
   }
 
 }

@@ -1,12 +1,17 @@
 package lms.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lms.domain.Admin;
 import lms.domain.Faculty;
+import lms.dto.AdminDTO;
+import lms.dto.FacultyDTO;
 import lms.repository.FacultyRepository;
 
 @Service
@@ -15,9 +20,21 @@ public class FacultyService {
 	@Autowired
 	FacultyRepository facultyRepository;
 
-	public FacultyService() {}
+	public FacultyService() {
+	}
 
-	public List<Faculty> getAllFaculty() {
+	public Iterable<FacultyDTO> getAllFacultiesDTO() {
+
+		Iterable<Faculty> fs = facultyRepository.findAll();
+		Set<FacultyDTO> ret = new HashSet<>();
+
+		for (Faculty f : fs)
+			ret.add(f.toDTO());
+
+		return ret;
+	}
+
+	public List<Faculty> getAllFaculties() {
 		return facultyRepository.findAll();
 	}
 
